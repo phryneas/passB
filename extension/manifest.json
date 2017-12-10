@@ -35,5 +35,5 @@
       }
     }
   },
-  "permissions": ["nativeMessaging", "tabs", "activeTab", "storage", "unlimitedStorage"]
+  "permissions": ["nativeMessaging", "tabs", "activeTab", "storage", "unlimitedStorage", "clipboardWrite"]
 }

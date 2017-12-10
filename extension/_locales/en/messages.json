@@ -63,6 +63,9 @@
     "message": "Show as QR code",
     "description": "Label for the 'show password as QR Code' menu entry"
   },
+  "extension_clipboard_action_copy": {
+    "message": "Copy to Clipboard"
+  },
   "options_tab_extensions": {
     "message": "Extensions",
     "description": "Label for 'Extensions' Tab in the Option menu"

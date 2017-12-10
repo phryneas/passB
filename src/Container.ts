@@ -25,9 +25,11 @@ container.bind<Interfaces.PassCli>(Symbols.PassCli).to(PassCliImplementation).in
 container.bind<Interfaces.State>(Symbols.State).to(StateImplementation).inSingletonScope();
 container.bind<Interfaces.StorageAdaper>(Symbols.StorageAdapter).to(BrowserStorageAdapter);
 
+import {ClipboardExtension} from 'Extensions/ClipboardExtension';
 import {PassExtension} from 'Extensions/PassExtension';
 import {QRCodeExtension} from 'Extensions/QRCodeExtension';
 
+container.bind<Interfaces.Extension<{}>>(Symbols.Extension).to(ClipboardExtension);
 container.bind<Interfaces.Extension<{}>>(Symbols.Extension).to(PassExtension);
 container.bind<Interfaces.Extension<{}>>(Symbols.Extension).to(QRCodeExtension);
 
