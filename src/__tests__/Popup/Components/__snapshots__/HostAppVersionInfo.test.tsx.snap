@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HostAppVersionInfo HostAppVersionInfoComponent renders empty on visible=false 1`] = `""`;
+
+exports[`HostAppVersionInfo HostAppVersionInfoComponent visible renders 1`] = `
+<div>
+  <withStyles(Button)
+    color="accent"
+    key="btn"
+    onClick={[Function]}
+    rootRef={[Function]}
+  >
+    <pure(Warning) />
+  </withStyles(Button)>
+  <withStyles(Popover)
+    anchorOrigin={
+      Object {
+        "horizontal": "center",
+        "vertical": "bottom",
+      }
+    }
+    key="popover"
+    onClose={[Function]}
+    open={false}
+    transformOrigin={
+      Object {
+        "horizontal": "center",
+        "vertical": "top",
+      }
+    }
+  >
+    <withStyles(List)>
+      <withStyles(ListItem)>
+        <withStyles(ListItemText)
+          primary="Your installed hostApp version is $currentVersion$ while the latest version is $latestVersion$. Some things might not work correctly until you upgrade."
+        />
+      </withStyles(ListItem)>
+      <withStyles(ListItem)
+        button={true}
+        className="hostAppInfo"
+        onClick={[Function]}
+      >
+        <withStyles(ListItemText)
+          primary="install the host application"
+        />
+      </withStyles(ListItem)>
+    </withStyles(List)>
+  </withStyles(Popover)>
+</div>
+`;
+
+exports[`mapStateToProps installed version: current 1`] = `
+Object {
+  "hostAppVersion": "1.5.1",
+  "visible": false,
+}
+`;
+
+exports[`mapStateToProps installed version: higher 1`] = `
+Object {
+  "hostAppVersion": "1.5.2",
+  "visible": false,
+}
+`;
+
+exports[`mapStateToProps installed version: lower 1`] = `
+Object {
+  "hostAppVersion": "1.5.0",
+  "visible": true,
+}
+`;
+
+exports[`mapStateToProps installed version: unknown 1`] = `
+Object {
+  "hostAppVersion": "unknown",
+  "visible": false,
+}
+`;

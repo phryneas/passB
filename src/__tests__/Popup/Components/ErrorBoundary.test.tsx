@@ -1,8 +1,8 @@
 import {shallow, ShallowWrapper} from 'enzyme';
 import * as React from 'react';
 import {RouteComponentProps} from 'react-router';
-import {getMockRouteComponentProps} from '../../__test_helpers__/getMockRouteComponentProps';
-import {ErrorBoundaryComponent, Props} from '../../Popup/Components/ErrorBoundary';
+import {getMockRouteComponentProps} from '__test_helpers__/getMockRouteComponentProps';
+import {ErrorBoundaryComponent, Props} from 'Popup/Components/ErrorBoundary';
 
 function renderShallow({children, ...props}: Partial<Props & RouteComponentProps<{}>>): ShallowWrapper {
   const mockedRouteComponentProps = getMockRouteComponentProps({});

@@ -23,7 +23,7 @@ export class HostAppVersionInfoComponent extends React.Component<Props, State> {
 
   private button: HTMLButtonElement;
 
-  public render(): JSX.Element[] | false {
+  public render(): JSX.Element | false {
     const {visible, hostAppVersion} = this.props;
     const {open} = this.state;
 
@@ -31,44 +31,45 @@ export class HostAppVersionInfoComponent extends React.Component<Props, State> {
       return false;
     }
 
-    return [(
-      <Button
-        rootRef={(button: HTMLButtonElement) => this.button = button}
-        key="btn"
-        color="accent"
-        onClick={() => this.setState({open: true})}
-      >
-        <Warning/>
-      </Button>
-    ),      (
-      <Popover
-        key="popover"
-        anchorEl={this.button}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
-        open={open}
-        onClose={() => this.setState({open: false})}
-      >
-            <List>
-              <ListItem>
-                <ListItemText primary={browser.i18n.getMessage('popup_host_app_nag_update', [hostAppVersion, latestHostAppVersion])} />
-              </ListItem>
-              <ListItem
-                button={true}
-                className="hostAppInfo"
-                onClick={() => browser.tabs.create({url: 'https://passb.github.io/host_application.html'})}
-              >
-                <ListItemText primary={browser.i18n.getMessage('popup_host_app_error_option_install')}/>
-              </ListItem>
-            </List>
-      </Popover>
-    )];
+    return (
+      <div>
+        <Button
+          rootRef={(button: HTMLButtonElement) => this.button = button}
+          key="btn"
+          color="accent"
+          onClick={() => this.setState({open: true})}
+        >
+          <Warning/>
+        </Button>
+        <Popover
+          key="popover"
+          anchorEl={this.button}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+          open={open}
+          onClose={() => this.setState({open: false})}
+        >
+          <List>
+            <ListItem>
+              <ListItemText primary={browser.i18n.getMessage('popup_host_app_nag_update', [hostAppVersion, latestHostAppVersion])}/>
+            </ListItem>
+            <ListItem
+              button={true}
+              className="hostAppInfo"
+              onClick={() => browser.tabs.create({url: 'https://passb.github.io/host_application.html'})}
+            >
+              <ListItemText primary={browser.i18n.getMessage('popup_host_app_error_option_install')}/>
+            </ListItem>
+          </List>
+        </Popover>
+      </div>
+    );
   }
 }
 
