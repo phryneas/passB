@@ -3,3 +3,5 @@ export enum executionContext {
   popup = 'popup',
   options = 'options',
 }
+
+export const latestHostAppVersion = '1.0.1';

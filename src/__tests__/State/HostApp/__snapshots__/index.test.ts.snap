@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HostApp State clearLastError 1`] = `Object {}`;
+exports[`HostApp State clearLastError 1`] = `
+Object {
+  "version": "unknown",
+}
+`;
 
 exports[`HostApp State setLastError 1`] = `
 Object {
@@ -8,5 +12,12 @@ Object {
     "message": "test",
     "type": "HOST_APP_ERROR",
   },
+  "version": "unknown",
+}
+`;
+
+exports[`HostApp State setVersion 1`] = `
+Object {
+  "version": "1.2.3",
 }
 `;

@@ -8,6 +8,7 @@ import {Interfaces, Symbols} from 'Container';
 import {lazyInject} from 'Decorators/lazyInject';
 import {ErrorBoundary} from './ErrorBoundary';
 import {HostAppErrorWrapper} from './HostAppErrorWrapper';
+import {HostAppVersionInfo} from './HostAppVersionInfo';
 import {ListView} from './Views/ListView';
 
 interface Props {
@@ -54,6 +55,7 @@ class ClassLessPopup extends React.Component<Props & WithStyles<keyof typeof sty
               <Typography type="title" color="inherit" className={classes.flexLeft}>
                 {browser.i18n.getMessage('extensionName')}
               </Typography>
+              <HostAppVersionInfo />
               <Button
                 color="contrast"
                 onClick={() => {

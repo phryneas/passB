@@ -12,6 +12,8 @@ interface PassReply {
 
 @injectable()
 export class PassCli implements Interfaces.PassCli {
+  public static readonly HOST_APP_ERROR: number = -255;
+
   @lazyInject(Symbols.State)
   protected state: Interfaces.State;
 
@@ -26,17 +28,31 @@ export class PassCli implements Interfaces.PassCli {
     return (await this.executeCommand('show', [path])).stdout;
   }
 
-  private async executeCommand(command: string, args: string[] = []): Promise<PassReply> {
+  public async getHostAppVersion(): Promise<string> {
+    const response = await this.executeCommand('host-app-version', [], false);
+    switch (response.returnCode) {
+      case 0:
+        return response.stdout[0];
+      case PassCli.HOST_APP_ERROR:
+        return 'unknown';
+      default:
+        return '1.0.0';
+    }
+  }
+
+  private async executeCommand(command: string, args: string[] = [], saveErrors: boolean = true): Promise<PassReply> {
     try {
       const response = await browser.runtime.sendNativeMessage('passb', {command, args}) as PassReply;
 
-      if (response.returnCode !== 0) {
-        this.state.getStore().dispatch(setLastError({message: response.stderr.join('\n'), type: ErrorType.PASS_EXECUTION_ERROR}));
+      if (response.returnCode !== 0 && saveErrors) {
+          this.state.getStore().dispatch(setLastError({message: response.stderr.join('\n'), type: ErrorType.PASS_EXECUTION_ERROR}));
       }
       return response;
     } catch (e) {
-      this.state.getStore().dispatch(setLastError({message: e.message, type: ErrorType.HOST_APP_ERROR}));
-      return {stdout: [], stderr: [], returnCode: -1};
+      if (saveErrors) {
+        this.state.getStore().dispatch(setLastError({message: e.message, type: ErrorType.HOST_APP_ERROR}));
+      }
+      return {stdout: [], stderr: [], returnCode: PassCli.HOST_APP_ERROR};
     }
   }
 }

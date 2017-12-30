@@ -13,6 +13,19 @@
   "popup_node_contextual_items": {
     "message": "Contextual"
   },
+  "popup_host_app_nag_update": {
+    "message": "Your installed hostApp version is $currentVersion$ while the latest version is $latestVersion$. Some things might not work correctly until you upgrade.",
+    "placeholders": {
+      "currentVersion" : {
+        "content" : "$1",
+        "example" : "1.0.0"
+      },
+      "latestVersion" : {
+        "content" : "$2",
+        "example" : "1.0.1"
+      }
+    }
+  },
   "popup_host_app_error_title": {
     "message": "An error occured",
     "description": "title for the error component when there was an error with the hostapp"
