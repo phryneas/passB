@@ -6,14 +6,14 @@ exports[`ListView Component renders 1`] = `
     className="ListViewComponent-noTopPadding-1"
   >
     <TextField
-      className="search"
-      fullWidth={true}
-      inputProps={
+      InputProps={
         Object {
           "autoFocus": true,
           "tabIndex": 0,
         }
       }
+      className="search"
+      fullWidth={true}
       label="Search..."
       margin="none"
       onChange={[Function]}

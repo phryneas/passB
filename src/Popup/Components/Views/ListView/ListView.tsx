@@ -48,7 +48,7 @@ class ListViewComponent extends React.Component<InnerProps, State> {
             fullWidth={true}
             margin="none"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => this.setState({filter: e.target.value})}
-            inputProps={{autoFocus: true, tabIndex: 0}}
+            InputProps={{autoFocus: true, tabIndex: 0}}
             value={filter}
           />
         </ListItem>

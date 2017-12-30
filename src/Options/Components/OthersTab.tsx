@@ -43,7 +43,7 @@ export class OthersTab extends React.Component<{}, State> {
           </ListItem>
         </List>
         <Dialog
-          onRequestClose={() => this.setState({showResetDialog: false})}
+          onClose={() => this.setState({showResetDialog: false})}
           maxWidth="xs"
           open={showResetDialog}
         >

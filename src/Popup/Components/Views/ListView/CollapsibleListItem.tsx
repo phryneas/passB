@@ -1,10 +1,10 @@
-import {withStyles, ListItem,  WithStyles} from 'material-ui';
+import {withStyles, Collapse, ListItem,  WithStyles} from 'material-ui';
 import {ExpandLess, ExpandMore} from 'material-ui-icons';
 import {Theme} from 'material-ui/styles';
-import Collapse from 'material-ui/transitions/Collapse';
 import * as React from 'react';
 
 interface Props {
+  className?: string;
   children: JSX.Element | JSX.Element[] | React.ReactNode;
   CollapsedChildren: JSX.Element | JSX.Element[] | React.ReactNode;
   initiallyExpanded?: boolean;
@@ -56,7 +56,7 @@ export const CollapsibleListItem = withStyles<styleClasses>(styles)(
             <ExpandLess />
           }
         </ListItem>,
-        <Collapse key="collapsible" in={!collapsed} transitionDuration={0} unmountOnExit={true} className="collapse-container">
+        <Collapse key="collapsible" in={!collapsed} timeout={{enter: 0, exit: 0}}  unmountOnExit={true} className="collapse-container">
           <div className={classes.nested}>
             {CollapsedChildren}
           </div>

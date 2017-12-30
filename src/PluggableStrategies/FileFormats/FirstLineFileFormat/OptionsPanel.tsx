@@ -1,5 +1,4 @@
-import {FormControl, FormControlLabel, FormLabel} from 'material-ui';
-import {default as Radio, RadioGroup} from 'material-ui/Radio';
+import {FormControl, FormControlLabel, FormLabel, Radio, RadioGroup} from 'material-ui';
 import * as React from 'react';
 import {OptionPanelProps} from 'InjectableInterfaces/OptionsPanel';
 import {Options, UsernameStyle} from './FirstLineFileFormat';
